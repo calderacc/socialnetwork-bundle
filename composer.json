@@ -14,5 +14,13 @@
             "name": "Malte Huebner",
             "email": "malte@php.bike"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "PhpBike\\SocialNetworkBundle\\": ""
+        }
+    },
+    "scripts": {
+        "test": "vendor/phpunit/phpunit/phpunit test"
+    }
 }
