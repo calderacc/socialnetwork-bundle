@@ -1,6 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace App\Criticalmass\SocialNetwork\NetworkFeedFetcher;
+namespace PhpBike\SocialNetworkBundle\NetworkFeedFetcher;
 
 abstract class AbstractNetworkFeedFetcher implements NetworkFeedFetcherInterface
 {

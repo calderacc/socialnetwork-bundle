@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace App\Criticalmass\SocialNetwork\NetworkDetector;
+namespace PhpBike\SocialNetworkBundle\NetworkDetector;
 
 use App\Entity\SocialNetworkProfile;
-use App\Criticalmass\SocialNetwork\Network\NetworkInterface;
+use PhpBike\SocialNetworkBundle\Network\NetworkInterface;
 
 interface NetworkDetectorInterface
 {

@@ -2,10 +2,10 @@
 
 namespace Tests\SocialNetwork;
 
-use App\Criticalmass\SocialNetwork\Network;
-use App\Criticalmass\SocialNetwork\NetworkDetector\NetworkDetector;
-use App\Criticalmass\SocialNetwork\NetworkDetector\NetworkDetectorInterface;
-use App\Criticalmass\SocialNetwork\NetworkManager\NetworkManager;
+use PhpBike\SocialNetworkBundle\Network;
+use PhpBike\SocialNetworkBundle\NetworkDetector\NetworkDetector;
+use PhpBike\SocialNetworkBundle\NetworkDetector\NetworkDetectorInterface;
+use PhpBike\SocialNetworkBundle\NetworkManager\NetworkManager;
 use App\Entity\SocialNetworkProfile;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 

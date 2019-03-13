@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Criticalmass\SocialNetwork\NetworkFeedFetcher;
+namespace PhpBike\SocialNetworkBundle\NetworkFeedFetcher;
 
 use App\Entity\SocialNetworkFeedItem;
 use App\Entity\SocialNetworkProfile;

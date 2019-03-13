@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Criticalmass\SocialNetwork\Network;
+namespace PhpBike\SocialNetworkBundle\Network;
 
 use App\Entity\SocialNetworkProfile;
 

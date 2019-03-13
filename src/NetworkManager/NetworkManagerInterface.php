@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace App\Criticalmass\SocialNetwork\NetworkManager;
+namespace PhpBike\SocialNetworkBundle\NetworkManager;
 
-use App\Criticalmass\SocialNetwork\Network\NetworkInterface;
+use PhpBike\SocialNetworkBundle\Network\NetworkInterface;
 
 interface NetworkManagerInterface
 {

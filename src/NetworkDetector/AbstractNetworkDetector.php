@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace App\Criticalmass\SocialNetwork\NetworkDetector;
+namespace PhpBike\SocialNetworkBundle\NetworkDetector;
 
-use App\Criticalmass\SocialNetwork\Network\NetworkInterface;
-use App\Criticalmass\SocialNetwork\NetworkManager\NetworkManager;
-use App\Criticalmass\SocialNetwork\NetworkManager\NetworkManagerInterface;
+use PhpBike\SocialNetworkBundle\Network\NetworkInterface;
+use PhpBike\SocialNetworkBundle\NetworkManager\NetworkManager;
+use PhpBike\SocialNetworkBundle\NetworkManager\NetworkManagerInterface;
 
 abstract class AbstractNetworkDetector implements NetworkDetectorInterface
 {
