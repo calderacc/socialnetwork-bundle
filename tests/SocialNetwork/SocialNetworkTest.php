@@ -6,10 +6,9 @@ use PhpBike\SocialNetworkBundle\Network;
 use PhpBike\SocialNetworkBundle\NetworkDetector\NetworkDetector;
 use PhpBike\SocialNetworkBundle\NetworkDetector\NetworkDetectorInterface;
 use PhpBike\SocialNetworkBundle\NetworkManager\NetworkManager;
-use App\Entity\SocialNetworkProfile;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use PHPUnit\Framework\TestCase;
 
-class SocialNetworkTest extends KernelTestCase
+class SocialNetworkTest extends TestCase
 {
     protected function getNetworkDetector(): NetworkDetectorInterface
     {
@@ -33,245 +32,234 @@ class SocialNetworkTest extends KernelTestCase
         return new NetworkDetector($networkManager);
     }
 
-    protected function createProfile(string $identifier): SocialNetworkProfile
+    protected function detect(string $url): ?Network\NetworkInterface
     {
-        $profile = new SocialNetworkProfile();
-
-        $profile->setIdentifier($identifier);
-
-        return $profile;
-    }
-
-    protected function createAndDetect(string $identifier): ?Network\NetworkInterface
-    {
-        $profile = $this->createProfile($identifier);
-
-        $network = $this->getNetworkDetector()->detect($profile);
+        $network = $this->getNetworkDetector()->detect($url);
 
         return $network;
     }
 
     public function testHomepage(): void
     {
-        $network = $this->createAndDetect('https://criticalmass-hamburg.de/');
+        $network = $this->detect('https://criticalmass-hamburg.de/');
 
         $this->assertEquals('homepage', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://criticalmass-hamburg.de/');
+        $network = $this->detect('http://criticalmass-hamburg.de/');
 
         $this->assertEquals('homepage', $network->getIdentifier());
 
-        $network = $this->createAndDetect('https://criticalmass-hamburg.de');
+        $network = $this->detect('https://criticalmass-hamburg.de');
 
         $this->assertEquals('homepage', $network->getIdentifier());
 
-        $network = $this->createAndDetect('criticalmass-hamburg.de/');
+        $network = $this->detect('criticalmass-hamburg.de/');
 
         $this->assertNull($network);
     }
 
     public function testGoogle(): void
     {
-        $network = $this->createAndDetect('https://plus.google.com/+Critical-Mass-Hamburg');
+        $network = $this->detect('https://plus.google.com/+Critical-Mass-Hamburg');
 
         $this->assertEquals('google', $network->getIdentifier());
     }
 
     public function testFlickr(): void
     {
-        $network = $this->createAndDetect('https://www.flickr.com/photos/130278554@N08/');
+        $network = $this->detect('https://www.flickr.com/photos/130278554@N08/');
 
         $this->assertEquals('flickr', $network->getIdentifier());
     }
 
     public function testTumblr(): void
     {
-        $network = $this->createAndDetect('https://criticalmasshamburg.tumblr.com/');
+        $network = $this->detect('https://criticalmasshamburg.tumblr.com/');
 
         $this->assertEquals('tumblr', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://criticalmasshamburg.tumblr.com/');
+        $network = $this->detect('http://criticalmasshamburg.tumblr.com/');
 
         $this->assertEquals('tumblr', $network->getIdentifier());
 
-        $network = $this->createAndDetect('https://www.criticalmasshamburg.tumblr.com/');
+        $network = $this->detect('https://www.criticalmasshamburg.tumblr.com/');
 
         $this->assertEquals('tumblr', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://www.criticalmasshamburg.tumblr.com/');
+        $network = $this->detect('http://www.criticalmasshamburg.tumblr.com/');
 
         $this->assertEquals('tumblr', $network->getIdentifier());
     }
 
     public function testTwitter(): void
     {
-        $network = $this->createAndDetect('https://twitter.com/cm_hh');
+        $network = $this->detect('https://twitter.com/cm_hh');
 
         $this->assertEquals('twitter', $network->getIdentifier());
 
-        $network = $this->createAndDetect('https://www.twitter.com/cm_hh');
+        $network = $this->detect('https://www.twitter.com/cm_hh');
 
         $this->assertEquals('twitter', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://twitter.com/cm_hh');
+        $network = $this->detect('http://twitter.com/cm_hh');
 
         $this->assertEquals('twitter', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://www.twitter.com/cm_hh');
+        $network = $this->detect('http://www.twitter.com/cm_hh');
 
         $this->assertEquals('twitter', $network->getIdentifier());
 
-        $network = $this->createAndDetect('@cm_hh');
+        $network = $this->detect('@cm_hh');
 
         $this->assertNull($network);
     }
 
     public function testYoutubeChannel(): void
     {
-        $network = $this->createAndDetect('https://www.youtube.com/channel/UCq3Ci-h945sbEYXpVlw7rJg');
+        $network = $this->detect('https://www.youtube.com/channel/UCq3Ci-h945sbEYXpVlw7rJg');
 
         $this->assertEquals('youtube_channel', $network->getIdentifier());
 
-        $network = $this->createAndDetect('https://youtube.com/channel/UCq3Ci-h945sbEYXpVlw7rJg');
+        $network = $this->detect('https://youtube.com/channel/UCq3Ci-h945sbEYXpVlw7rJg');
 
         $this->assertEquals('youtube_channel', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://www.youtube.com/channel/UCq3Ci-h945sbEYXpVlw7rJg');
+        $network = $this->detect('http://www.youtube.com/channel/UCq3Ci-h945sbEYXpVlw7rJg');
 
         $this->assertEquals('youtube_channel', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://youtube.com/channel/UCq3Ci-h945sbEYXpVlw7rJg');
+        $network = $this->detect('http://youtube.com/channel/UCq3Ci-h945sbEYXpVlw7rJg');
 
         $this->assertEquals('youtube_channel', $network->getIdentifier());
     }
 
     public function testYoutubePlaylist(): void
     {
-        $network = $this->createAndDetect('https://www.youtube.com/playlist?list=abcdefg');
+        $network = $this->detect('https://www.youtube.com/playlist?list=abcdefg');
 
         $this->assertEquals('youtube_playlist', $network->getIdentifier());
 
-        $network = $this->createAndDetect('https://youtube.com/playlist?list=abcdefg');
+        $network = $this->detect('https://youtube.com/playlist?list=abcdefg');
 
         $this->assertEquals('youtube_playlist', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://www.youtube.com/playlist?list=abcdefg');
+        $network = $this->detect('http://www.youtube.com/playlist?list=abcdefg');
 
         $this->assertEquals('youtube_playlist', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://youtube.com/playlist?list=abcdefg');
+        $network = $this->detect('http://youtube.com/playlist?list=abcdefg');
 
         $this->assertEquals('youtube_playlist', $network->getIdentifier());
     }
 
     public function testYoutubeUser(): void
     {
-        $network = $this->createAndDetect('https://www.youtube.com/user/TomorrowlandChannel/');
+        $network = $this->detect('https://www.youtube.com/user/TomorrowlandChannel/');
 
         $this->assertEquals('youtube_user', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://www.youtube.com/user/TomorrowlandChannel/');
+        $network = $this->detect('http://www.youtube.com/user/TomorrowlandChannel/');
 
         $this->assertEquals('youtube_user', $network->getIdentifier());
 
-        $network = $this->createAndDetect('https://youtube.com/user/TomorrowlandChannel/');
+        $network = $this->detect('https://youtube.com/user/TomorrowlandChannel/');
 
         $this->assertEquals('youtube_user', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://youtube.com/user/TomorrowlandChannel/');
+        $network = $this->detect('http://youtube.com/user/TomorrowlandChannel/');
 
         $this->assertEquals('youtube_user', $network->getIdentifier());
 
-        $network = $this->createAndDetect('https://www.youtube.com/user/TomorrowlandChannel');
+        $network = $this->detect('https://www.youtube.com/user/TomorrowlandChannel');
 
         $this->assertEquals('youtube_user', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://www.youtube.com/user/TomorrowlandChannel');
+        $network = $this->detect('http://www.youtube.com/user/TomorrowlandChannel');
 
         $this->assertEquals('youtube_user', $network->getIdentifier());
 
-        $network = $this->createAndDetect('https://youtube.com/user/TomorrowlandChannel');
+        $network = $this->detect('https://youtube.com/user/TomorrowlandChannel');
 
         $this->assertEquals('youtube_user', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://youtube.com/user/TomorrowlandChannel');
+        $network = $this->detect('http://youtube.com/user/TomorrowlandChannel');
 
         $this->assertEquals('youtube_user', $network->getIdentifier());
     }
 
     public function testYoutubeVideo(): void
     {
-        $network = $this->createAndDetect('https://www.youtube.com/watch?v=MglnNn_rB3I');
+        $network = $this->detect('https://www.youtube.com/watch?v=MglnNn_rB3I');
 
         $this->assertEquals('youtube_video', $network->getIdentifier());
     }
 
     public function testInstagramPhoto(): void
     {
-        $network = $this->createAndDetect('https://www.instagram.com/p/BsRoT-eA23Q/');
+        $network = $this->detect('https://www.instagram.com/p/BsRoT-eA23Q/');
 
         $this->assertEquals('instagram_photo', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://www.instagram.com/p/BsRoT-eA23Q/');
+        $network = $this->detect('http://www.instagram.com/p/BsRoT-eA23Q/');
 
         $this->assertEquals('instagram_photo', $network->getIdentifier());
 
-        $network = $this->createAndDetect('https://instagram.com/p/BsRoT-eA23Q/');
+        $network = $this->detect('https://instagram.com/p/BsRoT-eA23Q/');
 
         $this->assertEquals('instagram_photo', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://instagram.com/p/BsRoT-eA23Q/');
+        $network = $this->detect('http://instagram.com/p/BsRoT-eA23Q/');
 
         $this->assertEquals('instagram_photo', $network->getIdentifier());
 
-        $network = $this->createAndDetect('https://www.instagram.com/p/BsRoT-eA23Q');
+        $network = $this->detect('https://www.instagram.com/p/BsRoT-eA23Q');
 
         $this->assertEquals('instagram_photo', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://www.instagram.com/p/BsRoT-eA23Q');
+        $network = $this->detect('http://www.instagram.com/p/BsRoT-eA23Q');
 
         $this->assertEquals('instagram_photo', $network->getIdentifier());
 
-        $network = $this->createAndDetect('https://instagram.com/p/BsRoT-eA23Q');
+        $network = $this->detect('https://instagram.com/p/BsRoT-eA23Q');
 
         $this->assertEquals('instagram_photo', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://instagram.com/p/BsRoT-eA23Q');
+        $network = $this->detect('http://instagram.com/p/BsRoT-eA23Q');
 
         $this->assertEquals('instagram_photo', $network->getIdentifier());
     }
 
     public function testInstagramProfile(): void
     {
-        $network = $this->createAndDetect('https://www.instagram.com/criticalmasshamburg/');
+        $network = $this->detect('https://www.instagram.com/criticalmasshamburg/');
 
         $this->assertEquals('instagram_profile', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://www.instagram.com/criticalmasshamburg/');
+        $network = $this->detect('http://www.instagram.com/criticalmasshamburg/');
 
         $this->assertEquals('instagram_profile', $network->getIdentifier());
 
-        $network = $this->createAndDetect('https://instagram.com/criticalmasshamburg/');
+        $network = $this->detect('https://instagram.com/criticalmasshamburg/');
 
         $this->assertEquals('instagram_profile', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://www.instagram.com/criticalmasshamburg/');
+        $network = $this->detect('http://www.instagram.com/criticalmasshamburg/');
 
         $this->assertEquals('instagram_profile', $network->getIdentifier());
 
-        $network = $this->createAndDetect('https://www.instagram.com/criticalmasshamburg');
+        $network = $this->detect('https://www.instagram.com/criticalmasshamburg');
 
         $this->assertEquals('instagram_profile', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://www.instagram.com/criticalmasshamburg');
+        $network = $this->detect('http://www.instagram.com/criticalmasshamburg');
 
         $this->assertEquals('instagram_profile', $network->getIdentifier());
 
-        $network = $this->createAndDetect('https://instagram.com/criticalmasshamburg');
+        $network = $this->detect('https://instagram.com/criticalmasshamburg');
 
         $this->assertEquals('instagram_profile', $network->getIdentifier());
 
-        $network = $this->createAndDetect('http://www.instagram.com/criticalmasshamburg');
+        $network = $this->detect('http://www.instagram.com/criticalmasshamburg');
 
         $this->assertEquals('instagram_profile', $network->getIdentifier());
     }
