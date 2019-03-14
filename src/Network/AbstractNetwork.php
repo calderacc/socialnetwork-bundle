@@ -2,7 +2,6 @@
 
 namespace PhpBike\SocialNetworkBundle\Network;
 
-use App\Entity\SocialNetworkProfile;
 use App\Criticalmass\Util\StringUtil;
 
 abstract class AbstractNetwork implements NetworkInterface
@@ -58,7 +57,7 @@ abstract class AbstractNetwork implements NetworkInterface
         return $this->detectorPriority;
     }
 
-    public function accepts(SocialNetworkProfile $socialNetworkProfile): bool
+    public function accepts(string $url): bool
     {
         return false;
     }

@@ -2,7 +2,6 @@
 
 namespace PhpBike\SocialNetworkBundle\Network;
 
-use App\Entity\SocialNetworkProfile;
 use Facebook\Exceptions\FacebookResponseException;
 
 class FacebookPage extends AbstractFacebookNetwork

@@ -2,20 +2,15 @@
 
 namespace PhpBike\SocialNetworkBundle\NetworkDetector;
 
-use App\Entity\SocialNetworkProfile;
 use PhpBike\SocialNetworkBundle\Network\NetworkInterface;
 
 class NetworkDetector extends AbstractNetworkDetector
 {
-    public function detect(SocialNetworkProfile $socialNetworkProfile): ?NetworkInterface
+    public function detect(string $url): ?NetworkInterface
     {
-        if (!$socialNetworkProfile->getIdentifier()) {
-            return null;
-        }
-
         /** @var NetworkInterface $network */
         foreach ($this->networkList as $network) {
-            if ($network->accepts($socialNetworkProfile)) {
+            if ($network->accepts($url)) {
                 return $network;
             }
         }

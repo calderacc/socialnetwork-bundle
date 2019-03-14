@@ -2,11 +2,10 @@
 
 namespace PhpBike\SocialNetworkBundle\NetworkDetector;
 
-use App\Entity\SocialNetworkProfile;
 use PhpBike\SocialNetworkBundle\Network\NetworkInterface;
 
 interface NetworkDetectorInterface
 {
-    public function detect(SocialNetworkProfile $socialNetworkProfile): ?NetworkInterface;
+    public function detect(string $url): ?NetworkInterface;
 
 }

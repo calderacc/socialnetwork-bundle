@@ -2,8 +2,6 @@
 
 namespace PhpBike\SocialNetworkBundle\Network;
 
-use App\Entity\SocialNetworkProfile;
-
 interface NetworkInterface
 {
     public function getName(): string;
@@ -13,5 +11,5 @@ interface NetworkInterface
 
     public function getIdentifier(): string;
     public function getDetectorPriority(): int;
-    public function accepts(SocialNetworkProfile $socialNetworkProfile): bool;
+    public function accepts(string $url): bool;
 }

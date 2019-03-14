@@ -2,8 +2,6 @@
 
 namespace PhpBike\SocialNetworkBundle\Network;
 
-use App\Entity\SocialNetworkProfile;
-
 class FacebookEvent extends AbstractFacebookNetwork
 {
     /** @var string $name */

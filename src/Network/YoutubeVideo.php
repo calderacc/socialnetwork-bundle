@@ -2,8 +2,6 @@
 
 namespace PhpBike\SocialNetworkBundle\Network;
 
-use App\Entity\SocialNetworkProfile;
-
 class YoutubeVideo extends AbstractNetwork
 {
     /** @var string $name */
@@ -12,11 +10,11 @@ class YoutubeVideo extends AbstractNetwork
     /** @var int $detectorPriority */
     protected $detectorPriority = -10;
 
-    public function accepts(SocialNetworkProfile $socialNetworkProfile): bool
+    public function accepts(string $url): bool
     {
         $pattern = '/^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:watch+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/';
 
-        preg_match($pattern, $socialNetworkProfile->getIdentifier(), $matches);
+        preg_match($pattern, $url, $matches);
 
         return $matches && is_array($matches) && count($matches) > 1;
     }

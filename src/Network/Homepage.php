@@ -2,8 +2,6 @@
 
 namespace PhpBike\SocialNetworkBundle\Network;
 
-use App\Entity\SocialNetworkProfile;
-
 class Homepage extends AbstractNetwork
 {
     /** @var string */
@@ -21,8 +19,8 @@ class Homepage extends AbstractNetwork
     /** @var int $detectorPriority */
     protected $detectorPriority = -100;
 
-    public function accepts(SocialNetworkProfile $socialNetworkProfile): bool
+    public function accepts(string $url): bool
     {
-        return false !== filter_var($socialNetworkProfile->getIdentifier(), FILTER_VALIDATE_URL);
+        return false !== filter_var($url, FILTER_VALIDATE_URL);
     }
 }

@@ -2,8 +2,6 @@
 
 namespace PhpBike\SocialNetworkBundle\Network;
 
-use App\Entity\SocialNetworkProfile;
-
 class Twitter extends AbstractNetwork
 {
     /** @var string $name */
@@ -18,11 +16,11 @@ class Twitter extends AbstractNetwork
     /** @var string $textColor */
     protected $textColor = 'white';
 
-    public function accepts(SocialNetworkProfile $socialNetworkProfile): bool
+    public function accepts(string $url): bool
     {
         $pattern = '/http(?:s)?:\/\/(?:www\.)?twitter\.com\/([a-zA-Z0-9_]+)/';
 
-        preg_match($pattern, $socialNetworkProfile->getIdentifier(), $matches);
+        preg_match($pattern, $url, $matches);
 
         return $matches && is_array($matches) && 2 === count($matches);
     }
