@@ -49,7 +49,18 @@ abstract class AbstractNetwork implements NetworkInterface
     {
         $reflection = new \ReflectionClass($this);
 
-        return StringUtil::camelCaseToUnderscore($reflection->getShortName());
+        return $this->camelCaseToUnderscore($reflection->getShortName());
+    }
+
+    protected function camelCaseToUnderscore(string $input, bool $avoidDoubleUnderscore = true): string
+    {
+        $output = strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $input));
+
+        if ($avoidDoubleUnderscore) {
+            $output = str_replace('__', '_', $output);
+        }
+
+        return $output;
     }
 
     public function getDetectorPriority(): int
