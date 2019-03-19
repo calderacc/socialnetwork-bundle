@@ -2,14 +2,17 @@
 
 namespace Caldera\SocialNetworkBundle;
 
+use Caldera\SocialNetworkBundle\DependencyInjection\Compiler\SocialNetworkPass;
+use Caldera\SocialNetworkBundle\Network\NetworkInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class SocialNetworkBundle extends Bundle
 {
-    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader)
+    public function build(ContainerBuilder $container): void
     {
         $container->registerForAutoconfiguration(NetworkInterface::class)->addTag('social_network.network');
-        $container->addCompilerPass(new SocialNetworkPass());
 
+        $container->addCompilerPass(new SocialNetworkPass());
     }
 }

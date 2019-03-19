@@ -2,6 +2,8 @@
 
 namespace Caldera\SocialNetworkBundle\DependencyInjection\Compiler;
 
+use Caldera\SocialNetworkBundle\NetworkManager\NetworkManager;
+use Caldera\SocialNetworkBundle\NetworkManager\NetworkManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\Reference;
@@ -15,7 +17,7 @@ class SocialNetworkPass implements CompilerPassInterface
 
     protected function processNetworkManager(ContainerBuilder $container): void
     {
-        if (!$container->has(NetworkManagerIn::class)) {
+        if (!$container->has(NetworkManagerInterface::class)) {
             return;
         }
 
