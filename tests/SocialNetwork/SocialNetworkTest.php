@@ -17,6 +17,7 @@ class SocialNetworkTest extends TestCase
         //$networkManager->addNetwork(new Network\FacebookGroup());
         //$networkManager->addNetwork(new Network\FacebookPage());
         //$networkManager->addNetwork(new Network\FacebookProfile());
+        $networkManager->addNetwork(new Network\DiscordChat());
         $networkManager->addNetwork(new Network\Flickr());
         $networkManager->addNetwork(new Network\Google());
         $networkManager->addNetwork(new Network\Homepage());
@@ -286,5 +287,16 @@ class SocialNetworkTest extends TestCase
         $network = $this->detect('http://t.me/WEgc3436ew');
 
         $this->assertEquals('telegram_chat', $network->getIdentifier());
+    }
+
+    public function testDiscordChat(): void
+    {
+        $network = $this->detect('https://discordapp.com/invite/WEgc3436ew');
+
+        $this->assertEquals('discord_chat', $network->getIdentifier());
+
+        $network = $this->detect('https://discord.gg/WEgc3436ew');
+
+        $this->assertEquals('discord_chat', $network->getIdentifier());
     }
 }
