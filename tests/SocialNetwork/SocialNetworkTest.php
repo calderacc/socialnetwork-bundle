@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\SocialNetwork;
+namespace Caldera\SocialNetworkBundle\Tests\SocialNetwork;
 
 use Caldera\SocialNetworkBundle\Network;
 use Caldera\SocialNetworkBundle\NetworkDetector\NetworkDetector;
@@ -28,6 +28,7 @@ class SocialNetworkTest extends TestCase
         $networkManager->addNetwork(new Network\YoutubePlaylist());
         $networkManager->addNetwork(new Network\YoutubeUser());
         $networkManager->addNetwork(new Network\YoutubeVideo());
+        $networkManager->addNetwork(new Network\WhatsappChat());
 
         return new NetworkDetector($networkManager);
     }
@@ -262,5 +263,16 @@ class SocialNetworkTest extends TestCase
         $network = $this->detect('http://www.instagram.com/criticalmasshamburg');
 
         $this->assertEquals('instagram_profile', $network->getIdentifier());
+    }
+
+    public function testWhatsAppChat(): void
+    {
+        $network = $this->detect('https://chat.whatsapp.com/WEgc3436ew');
+
+        $this->assertEquals('whatsapp_chat', $network->getIdentifier());
+
+        $network = $this->detect('http://chat.whatsapp.com/WEgc3436ew');
+
+        $this->assertEquals('whatsapp_chat', $network->getIdentifier());
     }
 }
