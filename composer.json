@@ -17,7 +17,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Caldera\\SocialNetworkBundle\\": "src/"
+            "Caldera\\SocialNetworkBundle\\": ""
         }
     },
     "autoload-dev": {
