@@ -7,12 +7,12 @@ class FacebookGroup extends AbstractFacebookNetwork
     /** @var string $name */
     protected $name = 'facebook-Gruppe';
 
-    public function accepts(SocialNetworkProfile $socialNetworkProfile): bool
+    public function accepts(string $url): bool
     {
-        if (!parent::accepts($socialNetworkProfile)) {
+        if (!parent::accepts($url)) {
             return false;
         }
 
-        return strpos($socialNetworkProfile->getIdentifier(), 'facebook.com/groups/') !== false;
+        return strpos($url, 'facebook.com/groups/') !== false;
     }
 }

@@ -15,24 +15,16 @@ abstract class AbstractFacebookNetwork extends AbstractNetwork
     /** @var string $textColor */
     protected $textColor = 'white';
 
-    /** @var FacebookApi $facebookApi */
-    protected $facebookApi;
-
-    public function __construct(FacebookApi $facebookApi)
+    public function accepts(string $url): bool
     {
-        $this->facebookApi = $facebookApi;
-    }
-
-    public function accepts(SocialNetworkProfile $socialNetworkProfile): bool
-    {
-        preg_match(self::REGEX_PATTERN, $socialNetworkProfile->getIdentifier(), $matches);
+        preg_match(self::REGEX_PATTERN, $url, $matches);
 
         return $matches && is_array($matches) && 2 === count($matches);
     }
 
-    protected function getProfileFromUrl(SocialNetworkProfile $socialNetworkProfile): ?string
+    protected function getProfileFromUrl(string $url): ?string
     {
-        preg_match(self::REGEX_PATTERN, $socialNetworkProfile->getIdentifier(), $matches);
+        preg_match(self::REGEX_PATTERN, $url, $matches);
 
         if (!$matches || !is_array($matches) || 2 !== count($matches)) {
             return null;

@@ -14,11 +14,6 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  */
 class SocialNetworkExtension extends Extension
 {
-    public function __construct()
-    {
-        echo "FOO";die;
-    }
-
     /**
      * {@inheritDoc}
      */

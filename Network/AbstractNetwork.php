@@ -2,8 +2,6 @@
 
 namespace Caldera\SocialNetworkBundle\Network;
 
-use App\Criticalmass\Util\StringUtil;
-
 abstract class AbstractNetwork implements NetworkInterface
 {
     /** @var string $name */

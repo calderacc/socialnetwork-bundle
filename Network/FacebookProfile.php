@@ -2,31 +2,18 @@
 
 namespace Caldera\SocialNetworkBundle\Network;
 
-use Facebook\Exceptions\FacebookResponseException;
-
 class FacebookProfile extends AbstractFacebookNetwork
 {
     /** @var string $name */
     protected $name = 'facebook-Profil';
 
-    public function accepts(SocialNetworkProfile $socialNetworkProfile): bool
+    public function accepts(string $url): bool
     {
-        if (!parent::accepts($socialNetworkProfile)) {
+        if (!parent::accepts($url)) {
             return false;
         }
 
-        $profileName = $this->getProfileFromUrl($socialNetworkProfile);
-
-        // Sorry, this is so ugly, please provide a better solution and do not try this at home!
-        try {
-            $endpoint = sprintf('/%s', $profileName);
-
-            $result = $this->facebookApi->query($endpoint);
-        } catch (FacebookResponseException $exception) {
-            if (strpos($exception->getMessage(), '(#803) Cannot query users by their username') !== false) {
-                return true;
-            }
-        }
+        //$profileName = $this->getProfileFromUrl($url);
 
         return false;
     }
