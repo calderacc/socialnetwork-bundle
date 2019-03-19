@@ -22,7 +22,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Caldera\\SocialNetworkBundle\\Tests\\": "tests/"
+            "Caldera\\SocialNetworkBundle\\Tests\\": "Tests/"
         }
     },
     "scripts": {
