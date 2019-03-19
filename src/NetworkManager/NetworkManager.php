@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace PhpBike\SocialNetworkBundle\NetworkManager;
+namespace Caldera\SocialNetworkBundle\NetworkManager;
 
-use PhpBike\SocialNetworkBundle\Network\NetworkInterface;
+use Caldera\SocialNetworkBundle\Network\NetworkInterface;
 
 class NetworkManager implements NetworkManagerInterface
 {

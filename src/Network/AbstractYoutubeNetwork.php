@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace PhpBike\SocialNetworkBundle\Network;
+namespace Caldera\SocialNetworkBundle\Network;
 
 abstract class AbstractYoutubeNetwork extends AbstractNetwork
 {

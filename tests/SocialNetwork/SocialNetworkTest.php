@@ -2,10 +2,10 @@
 
 namespace Tests\SocialNetwork;
 
-use PhpBike\SocialNetworkBundle\Network;
-use PhpBike\SocialNetworkBundle\NetworkDetector\NetworkDetector;
-use PhpBike\SocialNetworkBundle\NetworkDetector\NetworkDetectorInterface;
-use PhpBike\SocialNetworkBundle\NetworkManager\NetworkManager;
+use Caldera\SocialNetworkBundle\Network;
+use Caldera\SocialNetworkBundle\NetworkDetector\NetworkDetector;
+use Caldera\SocialNetworkBundle\NetworkDetector\NetworkDetectorInterface;
+use Caldera\SocialNetworkBundle\NetworkManager\NetworkManager;
 use PHPUnit\Framework\TestCase;
 
 class SocialNetworkTest extends TestCase

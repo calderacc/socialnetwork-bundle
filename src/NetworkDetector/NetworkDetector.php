@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace PhpBike\SocialNetworkBundle\NetworkDetector;
+namespace Caldera\SocialNetworkBundle\NetworkDetector;
 
-use PhpBike\SocialNetworkBundle\Network\NetworkInterface;
+use Caldera\SocialNetworkBundle\Network\NetworkInterface;
 
 class NetworkDetector extends AbstractNetworkDetector
 {

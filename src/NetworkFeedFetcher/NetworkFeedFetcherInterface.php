@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpBike\SocialNetworkBundle\NetworkFeedFetcher;
+namespace Caldera\SocialNetworkBundle\NetworkFeedFetcher;
 
 use App\Entity\SocialNetworkProfile;
 

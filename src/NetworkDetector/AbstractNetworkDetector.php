@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace PhpBike\SocialNetworkBundle\NetworkDetector;
+namespace Caldera\SocialNetworkBundle\NetworkDetector;
 
-use PhpBike\SocialNetworkBundle\Network\NetworkInterface;
-use PhpBike\SocialNetworkBundle\NetworkManager\NetworkManager;
-use PhpBike\SocialNetworkBundle\NetworkManager\NetworkManagerInterface;
+use Caldera\SocialNetworkBundle\Network\NetworkInterface;
+use Caldera\SocialNetworkBundle\NetworkManager\NetworkManager;
+use Caldera\SocialNetworkBundle\NetworkManager\NetworkManagerInterface;
 
 abstract class AbstractNetworkDetector implements NetworkDetectorInterface
 {

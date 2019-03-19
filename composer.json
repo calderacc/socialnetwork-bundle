@@ -1,5 +1,5 @@
 {
-    "name": "phpbike/socialnetwork-bundle",
+    "name": "calderacc/socialnetwork-bundle",
     "description": "Handle links to social network profiles.",
     "type": "library",
     "require": {
@@ -12,17 +12,17 @@
     "authors": [
         {
             "name": "Malte Huebner",
-            "email": "malte@php.bike"
+            "email": "malte@caldera.cc"
         }
     ],
     "autoload": {
         "psr-4": {
-            "PhpBike\\SocialNetworkBundle\\": "src/"
+            "Caldera\\SocialNetworkBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PhpBike\\SocialNetworkBundle\\Tests\\": "tests/"
+            "Caldera\\SocialNetworkBundle\\Tests\\": "tests/"
         }
     },
     "scripts": {
