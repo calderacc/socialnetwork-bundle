@@ -21,6 +21,7 @@ class SocialNetworkTest extends TestCase
         $networkManager->addNetwork(new Network\Google());
         $networkManager->addNetwork(new Network\Homepage());
         $networkManager->addNetwork(new Network\Tumblr());
+        $networkManager->addNetwork(new Network\TelegramChat());
         $networkManager->addNetwork(new Network\Twitter());
         $networkManager->addNetwork(new Network\InstagramPhoto());
         $networkManager->addNetwork(new Network\InstagramProfile());
@@ -274,5 +275,16 @@ class SocialNetworkTest extends TestCase
         $network = $this->detect('http://chat.whatsapp.com/WEgc3436ew');
 
         $this->assertEquals('whatsapp_chat', $network->getIdentifier());
+    }
+
+    public function testTelegramChat(): void
+    {
+        $network = $this->detect('https://t.me/WEgc3436ew');
+
+        $this->assertEquals('telegram_chat', $network->getIdentifier());
+
+        $network = $this->detect('http://t.me/WEgc3436ew');
+
+        $this->assertEquals('telegram_chat', $network->getIdentifier());
     }
 }
