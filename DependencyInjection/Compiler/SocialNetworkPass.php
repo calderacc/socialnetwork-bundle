@@ -1,9 +1,7 @@
-<?php declare()
+<?php declare(strict_types=1);
 
-namespace App\DependencyInjection\Compiler;
+namespace Caldera\SocialNetworkBundle\DependencyInjection\Compiler;
 
-use App\Criticalmass\SocialNetwork\FeedFetcher\FeedFetcher;
-use App\Criticalmass\SocialNetwork\NetworkManager\NetworkManager;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\Reference;

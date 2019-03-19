@@ -1,6 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace App\DependencyInjection;
+namespace Caldera\SocialNetworkBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -12,8 +12,13 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class AppExtension extends Extension
+class SocialNetworkExtension extends Extension
 {
+    public function __construct()
+    {
+        echo "FOO";die;
+    }
+
     /**
      * {@inheritDoc}
      */
