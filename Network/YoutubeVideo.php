@@ -2,7 +2,7 @@
 
 namespace Caldera\SocialNetworkBundle\Network;
 
-class YoutubeVideo extends AbstractNetwork
+class YoutubeVideo extends AbstractYoutubeNetwork
 {
     /** @var string $name */
     protected $name = 'YouTube-Video';
