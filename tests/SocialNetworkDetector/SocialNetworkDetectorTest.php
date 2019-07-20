@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Caldera\SocialNetworkBundle\Tests\SocialNetwork;
+namespace Caldera\SocialNetworkBundle\Tests\SocialNetworkDetector;
 
 use Caldera\SocialNetworkBundle\Network;
 use Caldera\SocialNetworkBundle\NetworkDetector\NetworkDetector;
@@ -8,7 +8,7 @@ use Caldera\SocialNetworkBundle\NetworkDetector\NetworkDetectorInterface;
 use Caldera\SocialNetworkBundle\NetworkManager\NetworkManager;
 use PHPUnit\Framework\TestCase;
 
-class SocialNetworkTest extends TestCase
+class SocialNetworkDetectorTest extends TestCase
 {
     protected function getNetworkDetector(): NetworkDetectorInterface
     {
