@@ -2,46 +2,8 @@
 
 namespace Caldera\SocialNetworkBundle\Tests\SocialNetworkDetector;
 
-use Caldera\SocialNetworkBundle\Network;
-use Caldera\SocialNetworkBundle\NetworkDetector\NetworkDetector;
-use Caldera\SocialNetworkBundle\NetworkDetector\NetworkDetectorInterface;
-use Caldera\SocialNetworkBundle\NetworkManager\NetworkManager;
-use PHPUnit\Framework\TestCase;
-
-class SocialNetworkDetectorTest extends TestCase
+class SocialNetworkDetectorTest extends AbstractNetworkDetectorTest
 {
-    protected function getNetworkDetector(): NetworkDetectorInterface
-    {
-        $networkManager = new NetworkManager();
-        //$networkManager->addNetwork(new Network\FacebookEvent());
-        //$networkManager->addNetwork(new Network\FacebookGroup());
-        //$networkManager->addNetwork(new Network\FacebookPage());
-        //$networkManager->addNetwork(new Network\FacebookProfile());
-        $networkManager->addNetwork(new Network\DiscordChat());
-        $networkManager->addNetwork(new Network\Flickr());
-        $networkManager->addNetwork(new Network\Google());
-        $networkManager->addNetwork(new Network\Homepage());
-        $networkManager->addNetwork(new Network\Tumblr());
-        $networkManager->addNetwork(new Network\TelegramChat());
-        $networkManager->addNetwork(new Network\Twitter());
-        $networkManager->addNetwork(new Network\InstagramPhoto());
-        $networkManager->addNetwork(new Network\InstagramProfile());
-        $networkManager->addNetwork(new Network\YoutubeChannel());
-        $networkManager->addNetwork(new Network\YoutubePlaylist());
-        $networkManager->addNetwork(new Network\YoutubeUser());
-        $networkManager->addNetwork(new Network\YoutubeVideo());
-        $networkManager->addNetwork(new Network\WhatsappChat());
-
-        return new NetworkDetector($networkManager);
-    }
-
-    protected function detect(string $url): ?Network\NetworkInterface
-    {
-        $network = $this->getNetworkDetector()->detect($url);
-
-        return $network;
-    }
-
     public function testHomepage(): void
     {
         $network = $this->detect('https://criticalmass-hamburg.de/');
