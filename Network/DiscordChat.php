@@ -8,7 +8,7 @@ class DiscordChat extends AbstractNetwork
     protected $name = 'Discord-Chat';
 
     /** @var string $icon */
-    protected $icon = 'fa-discord';
+    protected $icon = 'fab fa-discord';
 
     /** @var string $backgroundColor */
     protected $backgroundColor = 'rgb(114, 137, 218)';

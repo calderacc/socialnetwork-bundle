@@ -8,7 +8,7 @@ class Twitter extends AbstractNetwork
     protected $name = 'twitter';
 
     /** @var string $icon */
-    protected $icon = 'fa-twitter';
+    protected $icon = 'fab fa-twitter';
 
     /** @var string $backgroundColor */
     protected $backgroundColor = 'rgb(29, 161, 242)';

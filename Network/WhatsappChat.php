@@ -8,7 +8,7 @@ class WhatsappChat extends AbstractNetwork
     protected $name = 'WhatsApp-Chat';
 
     /** @var string $icon */
-    protected $icon = 'fa-whatsapp';
+    protected $icon = 'fab fa-whatsapp';
 
     /** @var string $backgroundColor */
     protected $backgroundColor = 'rgb(65, 193, 83)';

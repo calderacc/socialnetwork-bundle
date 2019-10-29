@@ -8,7 +8,7 @@ class TelegramChat extends AbstractNetwork
     protected $name = 'Telegram-Chat';
 
     /** @var string $icon */
-    protected $icon = 'fa-telegram';
+    protected $icon = 'fab fa-telegram-plane';
 
     /** @var string $backgroundColor */
     protected $backgroundColor = 'rgb(40, 159, 217)';

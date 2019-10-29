@@ -5,7 +5,7 @@ namespace Caldera\SocialNetworkBundle\Network;
 abstract class AbstractInstagramNetwork extends AbstractNetwork
 {
     /** @var string $icon */
-    protected $icon = 'fa-instagram';
+    protected $icon = 'fab fa-instagram';
 
     /** @var string $backgroundColor */
     protected $backgroundColor = 'rgb(203, 44, 128)';
