@@ -8,7 +8,7 @@ class Homepage extends AbstractNetwork
     protected $name = 'Homepage';
 
     /** @var string $icon */
-    protected $icon = 'fa-globe';
+    protected $icon = 'far fa-home';
 
     /** @var string $backgroundColor */
     protected $backgroundColor = 'white';

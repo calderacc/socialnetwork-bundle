@@ -8,7 +8,7 @@ class Tumblr extends AbstractNetwork
     protected $name = 'Tumblr';
 
     /** @var string $icon */
-    protected $icon = 'fa-tumblr';
+    protected $icon = 'fab fa-tumblr';
 
     /** @var string $backgroundColor */
     protected $backgroundColor = 'rgb(0, 0, 0)';

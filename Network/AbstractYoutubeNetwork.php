@@ -5,7 +5,7 @@ namespace Caldera\SocialNetworkBundle\Network;
 abstract class AbstractYoutubeNetwork extends AbstractNetwork
 {
     /** @var string $icon */
-    protected $icon = 'fa-youtube';
+    protected $icon = 'fab fa-youtube';
 
     /** @var string $backgroundColor */
     protected $backgroundColor = 'rgb(255, 0, 0)';

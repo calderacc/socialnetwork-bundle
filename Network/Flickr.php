@@ -8,7 +8,7 @@ class Flickr extends AbstractNetwork
     protected $name = 'flickr';
 
     /** @var string $icon */
-    protected $icon = 'fa-flickr';
+    protected $icon = 'fab fa-flickr';
 
     /** @var string $backgroundColor */
     protected $backgroundColor = 'rgb(12, 101, 211)';
