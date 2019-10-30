@@ -29,7 +29,7 @@ class FlickrTest extends TestCase
 
     public function testIcon(): void
     {
-        $this->assertEquals('fa-flickr', (new Flickr())->getIcon());
+        $this->assertEquals('fab fa-flickr', (new Flickr())->getIcon());
     }
 
     public function testDetectorPriority(): void

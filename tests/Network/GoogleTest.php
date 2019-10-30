@@ -29,7 +29,7 @@ class GoogleTest extends TestCase
 
     public function testIcon(): void
     {
-        $this->assertEquals('fa-google-plus', (new Google())->getIcon());
+        $this->assertEquals('fab fa-google-plus-g', (new Google())->getIcon());
     }
 
     public function testDetectorPriority(): void

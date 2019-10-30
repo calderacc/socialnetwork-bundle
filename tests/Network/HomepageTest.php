@@ -29,7 +29,7 @@ class HomepageTest extends TestCase
 
     public function testIcon(): void
     {
-        $this->assertEquals('fa-globe', (new Homepage())->getIcon());
+        $this->assertEquals('far fa-home', (new Homepage())->getIcon());
     }
 
     public function testDetectorPriority(): void

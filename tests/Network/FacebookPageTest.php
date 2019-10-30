@@ -29,7 +29,7 @@ class FacebookPageTest extends TestCase
 
     public function testIcon(): void
     {
-        $this->assertEquals('fa-facebook', (new FacebookPage())->getIcon());
+        $this->assertEquals('fab fa-facebook-f', (new FacebookPage())->getIcon());
     }
 
     public function testDetectorPriority(): void

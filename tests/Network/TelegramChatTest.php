@@ -29,7 +29,7 @@ class TelegramChatTest extends TestCase
 
     public function testIcon(): void
     {
-        $this->assertEquals('fa-telegram', (new TelegramChat())->getIcon());
+        $this->assertEquals('fab fa-telegram-plane', (new TelegramChat())->getIcon());
     }
 
     public function testDetectorPriority(): void
