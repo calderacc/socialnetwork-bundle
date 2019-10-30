@@ -37,5 +37,13 @@ class InstagramProfileDetectorTest extends AbstractNetworkDetectorTest
         $network = $this->detect('http://www.instagram.com/criticalmasshamburg');
 
         $this->assertEquals('instagram_profile', $network->getIdentifier());
+
+        $network = $this->detect('http://www.instagram.de/criticalmassbremen');
+
+        $this->assertEquals('instagram_profile', $network->getIdentifier());
+
+        $network = $this->detect('http://www.instagram.fr/velorution');
+
+        $this->assertEquals('instagram_profile', $network->getIdentifier());
     }
 }
