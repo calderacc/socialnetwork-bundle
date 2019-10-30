@@ -9,7 +9,7 @@ class InstagramProfile extends AbstractInstagramNetwork
 
     public function accepts(string $url): bool
     {
-        $pattern = '/^(https?\:\/\/)?(www\.)?(instagram\.com)\/.+$/';
+        $pattern = '/^(https?\:\/\/)?(www\.)?(instagram\.([a-zA-Z]{2,3}))\/.+$/';
 
         preg_match($pattern, $url, $matches);
 
