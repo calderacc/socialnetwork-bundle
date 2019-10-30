@@ -8,7 +8,7 @@ class Google extends AbstractNetwork
     protected $name = 'Google+';
 
     /** @var string $icon */
-    protected $icon = 'fab google-plus-g';
+    protected $icon = 'fab fa-google-plus-g';
 
     /** @var string $backgroundColor */
     protected $backgroundColor = 'rgb(234, 66, 53)';
