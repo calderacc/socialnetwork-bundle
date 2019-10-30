@@ -29,7 +29,7 @@ class InstagramProfileTest extends TestCase
 
     public function testIcon(): void
     {
-        $this->assertEquals('fa-instagram', (new InstagramProfile())->getIcon());
+        $this->assertEquals('fab fa-instagram', (new InstagramProfile())->getIcon());
     }
 
     public function testDetectorPriority(): void

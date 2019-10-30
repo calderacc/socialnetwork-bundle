@@ -29,7 +29,7 @@ class FacebookGroupTest extends TestCase
 
     public function testIcon(): void
     {
-        $this->assertEquals('fa-facebook', (new FacebookGroup())->getIcon());
+        $this->assertEquals('fab fa-facebook-f', (new FacebookGroup())->getIcon());
     }
 
     public function testDetectorPriority(): void

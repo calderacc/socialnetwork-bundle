@@ -29,7 +29,7 @@ class FacebookEventTest extends TestCase
 
     public function testIcon(): void
     {
-        $this->assertEquals('fa-facebook', (new FacebookEvent())->getIcon());
+        $this->assertEquals('fab fa-facebook-f', (new FacebookEvent())->getIcon());
     }
 
     public function testDetectorPriority(): void

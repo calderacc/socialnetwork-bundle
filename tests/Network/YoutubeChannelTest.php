@@ -29,7 +29,7 @@ class YoutubeChannelTest extends TestCase
 
     public function testIcon(): void
     {
-        $this->assertEquals('fa-youtube', (new YoutubeChannel())->getIcon());
+        $this->assertEquals('fab fa-youtube', (new YoutubeChannel())->getIcon());
     }
 
     public function testDetectorPriority(): void

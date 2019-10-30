@@ -29,7 +29,7 @@ class TumblrTest extends TestCase
 
     public function testIcon(): void
     {
-        $this->assertEquals('fa-tumblr', (new Tumblr())->getIcon());
+        $this->assertEquals('fab fa-tumblr', (new Tumblr())->getIcon());
     }
 
     public function testDetectorPriority(): void

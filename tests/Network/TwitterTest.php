@@ -29,7 +29,7 @@ class TwitterTest extends TestCase
 
     public function testIcon(): void
     {
-        $this->assertEquals('fa-twitter', (new Twitter())->getIcon());
+        $this->assertEquals('fab fa-twitter', (new Twitter())->getIcon());
     }
 
     public function testDetectorPriority(): void

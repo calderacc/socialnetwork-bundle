@@ -29,7 +29,7 @@ class DiscordChatTest extends TestCase
 
     public function testIcon(): void
     {
-        $this->assertEquals('fa-discord', (new DiscordChat())->getIcon());
+        $this->assertEquals('fab fa-discord', (new DiscordChat())->getIcon());
     }
 
     public function testDetectorPriority(): void

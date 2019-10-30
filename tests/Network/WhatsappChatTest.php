@@ -29,7 +29,7 @@ class WhatsappChatTest extends TestCase
 
     public function testIcon(): void
     {
-        $this->assertEquals('fa-whatsapp', (new WhatsappChat())->getIcon());
+        $this->assertEquals('fab fa-whatsapp', (new WhatsappChat())->getIcon());
     }
 
     public function testDetectorPriority(): void
